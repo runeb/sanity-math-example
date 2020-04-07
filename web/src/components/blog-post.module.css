@@ -1,13 +1,14 @@
-@import '../styles/custom-media.css';
-@import '../styles/custom-properties.css';
+@import "../styles/custom-media.css";
+@import "../styles/custom-properties.css";
 
-.root {}
-
-.title {
-  composes: responsiveTitle1 from './typography.module.css';
+.root {
 }
 
-.mainImage {
+.title {
+  composes: responsiveTitle1 from "./typography.module.css";
+}
+
+.image {
   display: block;
   position: relative;
   background: var(--color-very-light-gray);
@@ -63,7 +64,7 @@
 }
 
 .publishedAt {
-  composes: small from './typography.module.css';
+  composes: small from "./typography.module.css";
   margin: 2rem 0 3rem;
   color: var(--color-gray);
 }
@@ -84,6 +85,6 @@
 }
 
 .categoriesHeadline {
-  composes: base from './typography.module.css';
+  composes: base from "./typography.module.css";
   margin: 0.5rem 0 0;
 }

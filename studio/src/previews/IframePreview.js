@@ -16,12 +16,11 @@ const assemblePostUrl = ({ displayed, options }) => {
     console.warn('Missing slug or previewURL', { slug, previewURL })
     return ''
   }
-  const dateSegment = format(publishedAt, 'YYYY/MM')
-  const path = `/${dateSegment}/${slug.current}/`
-  return `${previewURL}/blog${path}`
+  const path = `/articles/${slug.current}/`
+  return `${previewURL}${path}`
 }
 
-const IframePreview = props => {
+const IframePreview = (props) => {
   const { options } = props
   const { displayed } = props.document
 
@@ -53,11 +52,11 @@ const IframePreview = props => {
 }
 
 IframePreview.propTypes = {
-  document: PropTypes.object // eslint-disable-line react/forbid-prop-types
+  document: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 }
 
 IframePreview.defaultProps = {
-  document: null
+  document: null,
 }
 
 export default IframePreview

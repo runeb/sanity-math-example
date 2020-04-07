@@ -1,28 +1,28 @@
-import {format} from 'date-fns'
-import {Link} from 'gatsby'
-import React from 'react'
-import {buildImageObj, cn, getBlogUrl} from '../lib/helpers'
-import {imageUrlFor} from '../lib/image-url'
-import PortableText from './portableText'
+import { format } from "date-fns";
+import { Link } from "gatsby";
+import React from "react";
+import { buildImageObj, cn, getBlogUrl } from "../lib/helpers";
+import { imageUrlFor } from "../lib/image-url";
+import PortableText from "./portableText";
 
-import styles from './blog-post-preview.module.css'
-import {responsiveTitle3} from './typography.module.css'
+import styles from "./blog-post-preview.module.css";
+import { responsiveTitle3 } from "./typography.module.css";
 
-function BlogPostPreview (props) {
+function BlogPostPreview(props) {
   return (
     <Link
       className={props.isInList ? styles.inList : styles.inGrid}
       to={getBlogUrl(props.publishedAt, props.slug.current)}
     >
       <div className={styles.leadMediaThumb}>
-        {props.mainImage && props.mainImage.asset && (
+        {props.image && props.image.asset && (
           <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
+            src={imageUrlFor(buildImageObj(props.image))
               .width(600)
               .height(Math.floor((9 / 16) * 600))
-              .auto('format')
+              .auto("format")
               .url()}
-            alt={props.mainImage.alt}
+            alt={props.image.alt}
           />
         )}
       </div>
@@ -33,10 +33,10 @@ function BlogPostPreview (props) {
             <PortableText blocks={props._rawExcerpt} />
           </div>
         )}
-        <div className={styles.date}>{format(props.publishedAt, 'MMMM Do, YYYY')}</div>
+        <div className={styles.date}>{props.definition}</div>
       </div>
     </Link>
-  )
+  );
 }
 
-export default BlogPostPreview
+export default BlogPostPreview;
