@@ -1,6 +1,4 @@
-import PropTypes from 'prop-types'
 import React from 'react'
-import {io, Viewer} from 'bio-pv'
 import PDBS from './PDBS'
 
 const VIEWER_OPTIONS = {
@@ -23,12 +21,9 @@ const DEFAULT_PDB = PDBS[0].id
 const getAttr = (value, propName) => value && value[propName]
 
 export default class ProteinInput extends React.Component {
-  state = {
-    isLoading: true
-  }
-
   componentDidMount() {
     const {value} = this.props
+    const Viewer = require('bio-pv').Viewer
     this.viewer = new Viewer(this._viewerElement, VIEWER_OPTIONS)
     this.loadPdb((value && value.pdb) || DEFAULT_PDB)
   }
@@ -56,6 +51,7 @@ export default class ProteinInput extends React.Component {
   }
 
   loadPdb(id) {
+    const io = require('bio-pv').io
     this.setState({
       isLoading: true
     })
@@ -104,12 +100,6 @@ export default class ProteinInput extends React.Component {
   }
 
   render() {
-    const {value, type, level} = this.props
-
-    const pdbId = (value && value.pdb) || DEFAULT_PDB
-
-    const {isLoading} = this.state
-
     return <div ref={this.setViewerElement} />
   }
 }
