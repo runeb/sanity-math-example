@@ -19,7 +19,9 @@
     "dashboard-widget-netlify",
     "@sanity/studio-hints",
     "asset-source-unsplash",
-    "vision"
+    "vision",
+    "pdb-input",
+    "latex-input"
   ],
   "parts": [
     {

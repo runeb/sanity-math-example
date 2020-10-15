@@ -16,12 +16,24 @@ import bioPortableText from './objects/bioPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
-import math from './math'
+// import math from './math'
 import article from './documents/article'
-import { protein, camera } from './objects/protein'
 
 import solutionStep from './objects/solutionStep.js'
 import solution from './documents/solution'
+
+
+const learningTopic = {
+  type: 'document',
+  name: 'learningTopic',
+  fields: [
+    {
+      title: 'title',
+      name: 'name',
+      type: 'string',
+    }
+  ]
+}
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -30,11 +42,10 @@ export default createSchema({
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
-    camera,
-    protein,
+    learningTopic,
     solution,
     solutionStep,
-    math,
+    // math,
     article,
     // The following are document types which will appear
     // in the studio.
@@ -48,8 +59,8 @@ export default createSchema({
     authorReference,
     bodyPortableText,
     bioPortableText,
-    excerptPortableText,
+    excerptPortableText
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
-  ]),
+  ])
 })

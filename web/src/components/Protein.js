@@ -22,10 +22,11 @@ const getAttr = (value, propName) => value && value[propName]
 
 export default class ProteinInput extends React.Component {
   componentDidMount() {
-    const {value} = this.props
+    const {node} = this.props
+    console.log('props', this.props)
     const Viewer = require('bio-pv').Viewer
     this.viewer = new Viewer(this._viewerElement, VIEWER_OPTIONS)
-    this.loadPdb((value && value.pdb) || DEFAULT_PDB)
+    this.loadPdb((node && node.pdb) || DEFAULT_PDB)
   }
 
   componentWillUnmount() {

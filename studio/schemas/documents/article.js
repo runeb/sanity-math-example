@@ -5,7 +5,14 @@ export default {
   fields: [
     {
       type: 'string',
-      name: 'title',
+      name: 'title'
+    },
+    {
+      title: 'Author',
+      name: 'author',
+      type: 'reference',
+      weak: false,
+      to: [{type: 'author'}]
     },
     {
       title: 'Slug',
@@ -13,38 +20,31 @@ export default {
       type: 'slug',
       options: {
         source: 'title',
-        maxLength: 200, // // will be ignored if slugify is set
-      },
+        maxLength: 200 // // will be ignored if slugify is set
+      }
     },
     {
       type: 'mainImage',
-      name: 'image',
+      name: 'image'
     },
     {
       type: 'string',
-      name: 'pronounciation',
+      name: 'pronounciation'
     },
     {
       type: 'text',
       name: 'definition',
-      rows: 5,
+      rows: 5
     },
     {
       name: 'body',
-      type: 'bodyPortableText',
-    },
-    {
-      title: 'Author',
-      name: 'author',
-      type: 'reference',
-      weak: false,
-      to: [{ type: 'author' }],
-    },
+      type: 'bodyPortableText'
+    }
   ],
   preview: {
     select: {
       title: 'title',
-      media: 'image',
-    },
-  },
+      media: 'image'
+    }
+  }
 }

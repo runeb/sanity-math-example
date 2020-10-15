@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo } from "react";
 import KaTeX from "katex";
 import "katex/dist/katex.min.css?raw";
 
@@ -13,7 +13,7 @@ const LatexRender = ({ isInline = false, node = {} }) => {
           throwOnError: false,
         })
       );
-    } catch {}
+    } catch { }
   };
 
   useMemo(createHtml, [latex, isInline]);
